@@ -6,7 +6,6 @@
     <Product>Obsessive.Defender</Product>
     <Description>This project guards maintainers from insanity.</Description>
     <Version>$(PackageVersion)</Version>
-    <PackageLicenseUrl>https://github.com/Modest-as/obsessive-defender/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/Modest-as/obsessive-defender</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Modest-as/obsessive-defender</RepositoryUrl>
     <PackageTags>Code Analysis; Roslyn; StyleCop; FxCop;</PackageTags>
