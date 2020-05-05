@@ -27,9 +27,9 @@ jobs:
         sed 's/$(PackageVersion)/${{ steps.vars.outputs.tag }}/g' Obsessive.Defender/Obsessive.Defender.csproj > out.tmp
         cat out.tmp
         mv out.tmp Obsessive.Defender/Obsessive.Defender.csproj
-        sed 's/$(PackageVersion)/${{ steps.vars.outputs.tag }}/g' Obsessive.Defender/Obsessive.Defender.props > out.tmp
+        sed 's/$(PackageVersion)/${{ steps.vars.outputs.tag }}/g' Obsessive.Defender/build/Obsessive.Defender.props > out.tmp
         cat out.tmp
-        mv out.tmp Obsessive.Defender/Obsessive.Defender.props
+        mv out.tmp Obsessive.Defender/build/Obsessive.Defender.props
 
     - name: Build NuGet
       run: dotnet pack -c Release
