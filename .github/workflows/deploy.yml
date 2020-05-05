@@ -9,9 +9,6 @@ jobs:
   build-nuget:
     name: Deployment
 
-    env:
-      NUGET_CICD_KEY: ${{ secrets.CICD_KEY }}
-
     runs-on: ubuntu-16.04
 
     steps:
@@ -36,3 +33,6 @@ jobs:
 
     - name: Build NuGet
       run: dotnet pack -c Release
+
+    - name: Deploy NuGet
+      run: dotnet nuget push Obsessive.Defender/bin/Release/Obsessive.Defender.${{ steps.vars.outputs.tag }}.nupkg -k ${{ secrets.CICD_KEY }} -s https://api.nuget.org/v3/index.json
