@@ -1,0 +1,38 @@
+name: Deploy
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build-nuget:
+    name: Deployment
+
+    env:
+      NUGET_CICD_KEY: ${{ secrets.CICD_KEY }}
+
+    runs-on: ubuntu-16.04
+
+    steps:
+    - name: Set version tag
+      id: vars
+      run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
+
+    - uses: actions/checkout@v1
+
+    - uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '3.1.101'
+
+    - name: Overwrite files
+      run: |
+        sed 's/$(PackageVersion)/${{ steps.vars.outputs.tag }}/g' Obsessive.Defender/Obsessive.Defender.csproj > out.tmp
+        cat out.tmp
+        mv out.tmp Obsessive.Defender/Obsessive.Defender.csproj
+        sed 's/$(PackageVersion)/${{ steps.vars.outputs.tag }}/g' Obsessive.Defender/Obsessive.Defender.props > out.tmp
+        cat out.tmp
+        mv out.tmp Obsessive.Defender/Obsessive.Defender.props
+
+    - name: Build NuGet
+      run: dotnet pack -c Release

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <CodeAnalysisRuleSetLocation Condition=" '$(NuGetPackageRoot)' != '' ">$(NuGetPackageRoot)\obsessive.defender\$(PackageVersion)</CodeAnalysisRuleSetLocation>
+    <CodeAnalysisRuleSetLocation Condition=" '$(CodeAnalysisRuleSetLocation)' == '' and '$(SolutionDir)' != '' ">$(SolutionDir)\packages\Obsessive.Defender.$(PackageVersion)</CodeAnalysisRuleSetLocation>
+    <CodeAnalysisRuleSetLocation Condition=" '$(CodeAnalysisRuleSetLocation)' == '' ">$([System.IO.Path]::GetDirectoryName($(MSBuildProjectDirectory)))\packages\Obsessive.Defender.$(PackageVersion)</CodeAnalysisRuleSetLocation>
+  </PropertyGroup>
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>$(CodeAnalysisRuleSetLocation)\Obsessive.Defender.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="$(CodeAnalysisRuleSetLocation)\stylecop.json" Link="stylecop.json" />
+  </ItemGroup>
+</Project>

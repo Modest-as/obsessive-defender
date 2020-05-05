@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net47</TargetFrameworks>
+    <Authors>Modestas Petravicius</Authors>
+    <Product>Obsessive.Defender</Product>
+    <Description>This project guards maintainers from insanity.</Description>
+    <Version>$(PackageVersion)</Version>
+    <PackageLicenseUrl>https://github.com/Modest-as/obsessive-defender/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/Modest-as/obsessive-defender</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Modest-as/obsessive-defender</RepositoryUrl>
+    <PackageTags>Code Analysis; Roslyn; StyleCop; FxCop;</PackageTags>
+    <DevelopmentDependency>true</DevelopmentDependency>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.0.0" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="stylecop.json" Pack="true" PackagePath="" />
+    <None Include="Obsessive.Defender.ruleset" Pack="true" PackagePath="" />
+    <None Include="Obsessive.Defender.props" Pack="True" PackagePath="build\" />
+  </ItemGroup>
+</Project>
+ 
