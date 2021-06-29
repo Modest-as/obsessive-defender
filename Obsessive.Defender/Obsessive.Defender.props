@@ -13,5 +13,6 @@
   </PropertyGroup>
   <ItemGroup>
     <AdditionalFiles Include="$(CodeAnalysisRuleSetLocation)\stylecop.json" Link="stylecop.json" />
+    <AdditionalFiles Include="$(CodeAnalysisRuleSetLocation)\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
 </Project>

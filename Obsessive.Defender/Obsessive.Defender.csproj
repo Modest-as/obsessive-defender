@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include=".editorconfig" />
     <None Include="stylecop.json" Pack="true" PackagePath="" />
     <None Include="Obsessive.Defender.ruleset" Pack="true" PackagePath="" />
     <None Include="Obsessive.Defender.props" Pack="true" PackagePath="build/" />
