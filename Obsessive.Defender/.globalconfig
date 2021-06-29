@@ -20,9 +20,11 @@ dotnet_diagnostic.CA1720.severity = none
 dotnet_diagnostic.CA1801.severity = suggestion
 dotnet_diagnostic.CA1812.severity = none
 dotnet_diagnostic.CA1815.severity = suggestion
-dotnet_diagnostic.CA1819.severity = warning
 dotnet_diagnostic.CA1822.severity = suggestion
 dotnet_diagnostic.CA2211.severity = suggestion
 dotnet_diagnostic.CA2225.severity = none
 dotnet_diagnostic.CA2227.severity = none
 dotnet_diagnostic.CA1303.severity = none
+
+dotnet_diagnostic.CA1819.severity = warning
+dotnet_diagnostic.IDE0040.severity = warning
