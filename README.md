@@ -9,3 +9,5 @@
 ## Usage
 
 Install the NuGet in your project and rules will be enforced automatically.
+
+Based on https://devzone.channeladam.com/notebooks/languages/dotnet/editorconfig-distribution/

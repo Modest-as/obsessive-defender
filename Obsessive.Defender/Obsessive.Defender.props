@@ -11,17 +11,25 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-    <PropertyGroup>
-    <!-- Based on https://devzone.channeladam.com/notebooks/languages/dotnet/editorconfig-distribution/ -->
-    <NoWarn>$(NoWarn);CA1014</NoWarn>
-  </PropertyGroup>
   <PropertyGroup>
-    <CodeAnalysisRuleSetLocation Condition=" '$(NuGetPackageRoot)' != '' ">$(NuGetPackageRoot)\obsessive.defender\$(PackageVersion)</CodeAnalysisRuleSetLocation>
-    <CodeAnalysisRuleSetLocation Condition=" '$(CodeAnalysisRuleSetLocation)' == '' and '$(SolutionDir)' != '' ">$(SolutionDir)\packages\Obsessive.Defender.$(PackageVersion)</CodeAnalysisRuleSetLocation>
-    <CodeAnalysisRuleSetLocation Condition=" '$(CodeAnalysisRuleSetLocation)' == '' ">$([System.IO.Path]::GetDirectoryName($(MSBuildProjectDirectory)))\packages\Obsessive.Defender.$(PackageVersion)</CodeAnalysisRuleSetLocation>
+    <ConfigFileLocation Condition=" '$(NuGetPackageRoot)' != '' ">$(NuGetPackageRoot)\obsessive.defender\$(PackageVersion)</ConfigFileLocation>
+    <ConfigFileLocation Condition=" '$(ConfigFileLocation)' == '' and '$(SolutionDir)' != '' ">$(SolutionDir)\packages\Obsessive.Defender.$(PackageVersion)</ConfigFileLocation>
+    <ConfigFileLocation Condition=" '$(ConfigFileLocation)' == '' ">$([System.IO.Path]::GetDirectoryName($(MSBuildProjectDirectory)))\packages\Obsessive.Defender.$(PackageVersion)</ConfigFileLocation>
   </PropertyGroup>
-  <ItemGroup>
-    <AdditionalFiles Include="$(CodeAnalysisRuleSetLocation)\content\.editorconfig" Link=".editorconfig" />
-    <AdditionalFiles Include="$(CodeAnalysisRuleSetLocation)\content\.globalconfig" Link=".globalconfig" />
-  </ItemGroup>
+  <Target Name="CopyEditorConfig" BeforeTargets="BeforeBuild">
+    <Message Text="Copying the .editorconfig file from '@(ConfigFileLocation)' to '$(MSBuildProjectDirectory)'"></Message>
+    <Copy
+      SourceFiles="@(ConfigFileLocation)\content\CodeConfig\.editorconfig"
+      DestinationFolder="$(MSBuildProjectDirectory)"
+      SkipUnchangedFiles="true"
+      UseHardlinksIfPossible="false" />
+  </Target>
+  <Target Name="CopyGlobalConfig" BeforeTargets="BeforeBuild">
+    <Message Text="Copying the .editorconfig file from '@(ConfigFileLocation)' to '$(MSBuildProjectDirectory)'"></Message>
+    <Copy
+      SourceFiles="@(ConfigFileLocation)\content\CodeConfig\.globalconfig"
+      DestinationFolder="$(MSBuildProjectDirectory)"
+      SkipUnchangedFiles="true"
+      UseHardlinksIfPossible="false" />
+  </Target>
 </Project>
