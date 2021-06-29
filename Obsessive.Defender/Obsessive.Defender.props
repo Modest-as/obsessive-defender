@@ -21,7 +21,7 @@
     <CodeAnalysisRuleSetLocation Condition=" '$(CodeAnalysisRuleSetLocation)' == '' ">$([System.IO.Path]::GetDirectoryName($(MSBuildProjectDirectory)))\packages\Obsessive.Defender.$(PackageVersion)</CodeAnalysisRuleSetLocation>
   </PropertyGroup>
   <ItemGroup>
-    <AdditionalFiles Include="$(CodeAnalysisRuleSetLocation)\.editorconfig" Link=".editorconfig" />
-    <AdditionalFiles Include="$(CodeAnalysisRuleSetLocation)\.globalconfig" Link=".globalconfig" />
+    <AdditionalFiles Include="$(CodeAnalysisRuleSetLocation)\content\.editorconfig" Link=".editorconfig" />
+    <AdditionalFiles Include="$(CodeAnalysisRuleSetLocation)\content\.globalconfig" Link=".globalconfig" />
   </ItemGroup>
 </Project>

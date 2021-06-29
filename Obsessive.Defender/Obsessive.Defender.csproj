@@ -21,8 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include=".editorconfig" />
-    <None Include=".globalconfig" />
+    <None Include=".editorconfig" Pack="true" />
+    <None Include=".globalconfig" Pack="true" />
     <None Include="Obsessive.Defender.props" Pack="true" PackagePath="build/" />
   </ItemGroup>
 </Project>
