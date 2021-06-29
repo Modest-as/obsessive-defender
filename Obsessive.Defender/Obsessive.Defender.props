@@ -16,18 +16,24 @@
     <ConfigFileLocation Condition=" '$(ConfigFileLocation)' == '' and '$(SolutionDir)' != '' ">$(SolutionDir)\packages\Obsessive.Defender.$(PackageVersion)</ConfigFileLocation>
     <ConfigFileLocation Condition=" '$(ConfigFileLocation)' == '' ">$([System.IO.Path]::GetDirectoryName($(MSBuildProjectDirectory)))\packages\Obsessive.Defender.$(PackageVersion)</ConfigFileLocation>
   </PropertyGroup>
+  <ItemGroup>
+    <EditorConfigFilesToCopy Include="$(ConfigFileLocation)\content\CodeConfig\.editorconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <GlobalConfigFilesToCopy Include="$(ConfigFileLocation)\content\CodeConfig\.globalconfig" />
+  </ItemGroup>
   <Target Name="CopyEditorConfig" BeforeTargets="BeforeBuild">
-    <Message Text="Copying the .editorconfig file from '@(ConfigFileLocation)' to '$(MSBuildProjectDirectory)'"></Message>
+    <Message Text="Copying the .editorconfig file from '@(EditorConfigFilesToCopy)' to '$(MSBuildProjectDirectory)'"></Message>
     <Copy
-      SourceFiles="@(ConfigFileLocation)\content\CodeConfig\.editorconfig"
+      SourceFiles="@(EditorConfigFilesToCopy)"
       DestinationFolder="$(MSBuildProjectDirectory)"
       SkipUnchangedFiles="true"
       UseHardlinksIfPossible="false" />
   </Target>
   <Target Name="CopyGlobalConfig" BeforeTargets="BeforeBuild">
-    <Message Text="Copying the .editorconfig file from '@(ConfigFileLocation)' to '$(MSBuildProjectDirectory)'"></Message>
+    <Message Text="Copying the .globalconfig file from '@(GlobalConfigFilesToCopy)' to '$(MSBuildProjectDirectory)'"></Message>
     <Copy
-      SourceFiles="@(ConfigFileLocation)\content\CodeConfig\.globalconfig"
+      SourceFiles="@(GlobalConfigFilesToCopy)"
       DestinationFolder="$(MSBuildProjectDirectory)"
       SkipUnchangedFiles="true"
       UseHardlinksIfPossible="false" />
