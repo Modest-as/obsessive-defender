@@ -4,7 +4,7 @@
 
 [![NuGet](https://img.shields.io/nuget/v/Obsessive.Defender.svg)](https://www.nuget.org/packages/Obsessive.Defender)
 
-Common `StyleCop` and `FxCop` Roslyn analyzer rules to enforce code best practices.
+`.editorconfig` setup for all applications
 
 ## Usage
 

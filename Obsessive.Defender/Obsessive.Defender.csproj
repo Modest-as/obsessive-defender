@@ -8,19 +8,21 @@
     <Version>$(PackageVersion)</Version>
     <PackageProjectUrl>https://github.com/Modest-as/obsessive-defender</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Modest-as/obsessive-defender</RepositoryUrl>
-    <PackageTags>Code Analysis; Roslyn; StyleCop; FxCop;</PackageTags>
+    <PackageTags>Code Analysis; Roslyn;</PackageTags>
     <DevelopmentDependency>true</DevelopmentDependency>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.0.0" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" />
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="5.0.3" />
+    <PackageReference Include="Roslynator.Analyzers" Version="3.2.0" />
+    <PackageReference Include="Roslynator.CodeAnalysis.Analyzers" Version="1.0.0" />
+    <PackageReference Include="Roslynator.Formatting.Analyzers" Version="1.2.0" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include=".editorconfig" />
-    <None Include="stylecop.json" Pack="true" PackagePath="" />
-    <None Include="Obsessive.Defender.ruleset" Pack="true" PackagePath="" />
+    <None Include=".globalconfig" />
     <None Include="Obsessive.Defender.props" Pack="true" PackagePath="build/" />
   </ItemGroup>
 </Project>
