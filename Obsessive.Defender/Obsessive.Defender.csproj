@@ -9,14 +9,21 @@
     <PackageProjectUrl>https://github.com/Modest-as/obsessive-defender</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Modest-as/obsessive-defender</RepositoryUrl>
     <PackageTags>Code Analysis; Roslyn;</PackageTags>
+    
     <DevelopmentDependency>true</DevelopmentDependency>
     <NoDefaultExcludes>true</NoDefaultExcludes>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis" Version="3.10.0" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Include=".editorconfig" Pack="true" PackagePath="content\CodeConfig" />
     <None Include=".globalconfig" Pack="true" PackagePath="content\CodeConfig" />
     <None Include="Obsessive.Defender.props" Pack="true" PackagePath="build/" />
+    <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
   </ItemGroup>
 </Project>
  
